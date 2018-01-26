@@ -2,10 +2,13 @@
 ## Specializations
 ## Project: Capstone Proposal and Capstone Project
 
-**Note**
+Environment:
+Python 2.7.13
 
-The Capstone is a two-staged project. The first is the proposal component, where you can receive valuable feedback about your project idea, design, and proposed solution. This must be completed prior to your implementation and submitting for the capstone project. 
+Required packages:
+keras
+CoreNLP
 
-You can find the [capstone proposal rubric here](https://review.udacity.com/#!/rubrics/410/view), and the [capstone project rubric here](https://review.udacity.com/#!/rubrics/108/view). Please ensure that you are following directions correctly before submitting these two stages which encapsulate your capstone.
-
-Please email [machine-support@udacity.com](mailto:machine-support@udacity.com) if you have any questions.
+Training set can be accessed by downloading train.csv from branch "capstone" at https://github.com/doria112/machine-learning/tree/capstone/projects/capstone/data.
+Glove pre-trained 50 dimension vectors can be downloaded from glove.6B.zip at https://nlp.stanford.edu/projects/glove/.
+CoreNLP can be downloaded from https://stanfordnlp.github.io/CoreNLP/download.html by following the instructions. 
