@@ -11973,11 +11973,12 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong></p>
+<p><strong>Answer: </strong>
+Residence area usually can be roughly divided roughly into rich neighborhoods and poor neighborhoods. The housing situation tend to be similar in a neighborhood.</p>
 <ul>
-<li>An increase in 'RM' will likely lead to an increase of 'MEDV'</li>
-<li>An increase in 'LSTAT' will likely lead to a decrease of 'MEDV'</li>
-<li>An increase of 'PTRATIO' will likely lead to a decrese of 'MEDV'</li>
+<li>An increase in 'RM' will likely lead to an increase of 'MEDV'. More rooms usually indicates larger area of the house, and usually more expensive. </li>
+<li>An increase in 'LSTAT' will likely lead to a decrease of 'MEDV'. An increase in 'LSTAT' means higher percentage of wokring poor, which indicates the neighborhood is less rich, and leads to lower house price. </li>
+<li>An increase of 'PTRATIO' will likely lead to a decrese of 'MEDV'. An increase in ratio of students to teachers means not so good school district, which indicates poorer neighborhoods, and leads to lower house price. </li>
 </ul>
 
 </div>
@@ -12210,8 +12211,8 @@ Standard deviation of prices: $165,171.13
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-It is essential to keep a test dataset for evaluating the model performance. When number of features is greater than the number of data points, overfitting may happen. The symptom is that the training error is very low, however, the model captures a lot of noise, which makes the testing error to be high. Overfitting can be improved by evaluating the models trained on test dataset.</p>
-<p>Alternatively, when data points are way more than features, underfitting may happen. That's why we'd like to keep enough data points for training, and keep a proper portion for testing.</p>
+It is essential to keep a test dataset that is not used for training the models for evaluating the model performance. If we train on all the data, and evaluate the model performance on it again, we are over estimate the performance. The model evaluation can only be done on the data set that not seen before.</p>
+<p>Also, when data points are way more than features, underfitting may happen. That's why we'd like to keep enough data points for training, and keep a proper portion for testing.</p>
 
 </div>
 </div>
@@ -13772,9 +13773,11 @@ YII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>When the model is trained with maximum depth of 1, the model suffers from high variance. </li>
-<li>When the model is trained with maximum depth of 10, the model suffers from high bias. </li>
+<li>When the model is trained with maximum depth of 1, the model suffers from high bias. </li>
+<li>When the model is trained with maximum depth of 10, the model suffers from high viariances. </li>
 </ul>
+<p>High variances happens when the model pays too much attention to the data, and it tends to overfit. 
+High bias happens when the model pays little attention to the data, and it tends to over simplify.</p>
 
 </div>
 </div>
