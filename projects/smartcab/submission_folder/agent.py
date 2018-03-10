@@ -110,6 +110,9 @@ class LearningAgent(Agent):
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
 
+        if not self.learning:
+            return
+
         if state not in self.Q:
             state_dict = dict()
             for action in self.valid_actions:
@@ -129,17 +132,24 @@ class LearningAgent(Agent):
         # action = None
         
         # not learning, choose an action randomly
-        # action = random.choice(self.env.valid_actions)
-        r = random.random()
-        if r < self.epsilon:
+        if not self.learning:
             action = random.choice(self.env.valid_actions)
         else:
-            action = None
-            max_q = 0.0
-            for key, value in self.Q[state].iteritems():
-                if value > max_q:
-                    max_q = value
-                    action = key
+            r = random.random()
+            if r < self.epsilon:
+                action = random.choice(self.env.valid_actions)
+            else:
+                action = None
+                valid_actions = []
+                maxQ = self.get_maxQ(state)
+                print("maxQ %f" % maxQ)
+
+                for act in self.Q[state]:
+                    if maxQ == self.Q[state][act]:
+                        valid_actions.append(act)
+                print("valid actions length %d" % len(valid_actions))
+                if (len(valid_actions) > 0):
+                    action = random.choice(valid_actions)
 
         ########### 
         ## TO DO ##
@@ -161,7 +171,8 @@ class LearningAgent(Agent):
         ###########
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
-        self.Q[state][action] = (1 - self.alpha) * self.Q[state][action] + self.alpha * (reward + self.get_maxQ(state))
+        if self.learning:
+            self.Q[state][action] = self.Q[state][action] + self.alpha*(reward - self.Q[state][action])
 
         return
 
